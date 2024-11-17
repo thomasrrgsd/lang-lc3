@@ -1,12 +1,12 @@
 import ist from "ist"
 import {EditorState} from "@codemirror/state"
 import {getIndentation} from "@codemirror/language"
-import {python} from "@codemirror/lang-python"
+import {lc3} from "@codemirror/lang-lc3"
 
 function check(code: string) {
   return () => {
     code = /^\n*([^]*)/.exec(code)![1]
-    let state = EditorState.create({doc: code, extensions: [python().language]})
+    let state = EditorState.create({doc: code, extensions: [lc3().language]})
     for (let pos = 0, lines = code.split("\n"), i = 0; i < lines.length; i++) {
       let line = lines[i], indent = /^\s*/.exec(line)![0].length
       ist(`${getIndentation(state, pos)} (${i + 1})`, `${indent} (${i + 1})`)

@@ -87,7 +87,7 @@ export const pythonLanguage = LRLanguage.define({
 })
 
 /// Python language support.
-export function python() {
+export function lc3() {
   return new LanguageSupport(pythonLanguage, [
     pythonLanguage.data.of({autocomplete: localCompletionSource}),
     pythonLanguage.data.of({autocomplete: globalCompletion}),
